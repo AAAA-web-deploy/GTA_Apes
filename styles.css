@@ -71,3 +71,31 @@ main,.site-header{max-width:none}
  .hero-bottom{padding:0 16px 20px}
  .hero-logo{width:260px;height:190px;transform:translate(12px,-5px)}
 }
+
+.site-header{height:calc(86 * var(--u));padding:0 calc(16 * var(--u)) 0 calc(12 * var(--u))}
+.wordmark{display:flex;align-items:center;justify-content:flex-start;height:100%;width:auto;transform:none;margin-right:auto;overflow:visible;flex:none}
+.wordmark img{height:calc(74 * var(--u));width:auto;max-width:calc(168 * var(--u));object-fit:contain;object-position:left center;mix-blend-mode:lighten;margin:0}
+.hero-panel{display:flex;flex-direction:column;align-items:flex-start;gap:calc(12 * var(--u));padding-bottom:calc(18 * var(--u));min-width:0}
+.hero-actions{padding-bottom:0}
+.home-ca{display:flex;align-items:center;gap:calc(8 * var(--u));max-width:min(100%,calc(620 * var(--u)));padding:calc(5 * var(--u)) calc(5 * var(--u)) calc(5 * var(--u)) calc(12 * var(--u));background:rgba(16,8,28,.82);border:1px solid #c9b8df;border-radius:calc(8 * var(--u));box-shadow:inset 0 0 10px #5e3a78}
+.home-ca-label{flex:none;color:#ff38bc;font-family:ApesBold,Impact,sans-serif;font-style:italic;font-size:calc(16 * var(--u));letter-spacing:-.4px}
+.home-ca-address{font-family:Consolas,"Courier New",monospace;font-size:calc(13 * var(--u));font-style:normal;letter-spacing:0;line-height:1.2;color:#fff;word-break:break-all}
+.copy-ca{flex:none;display:inline-flex;align-items:center;justify-content:center;width:calc(36 * var(--u));height:calc(36 * var(--u));padding:calc(8 * var(--u));border-radius:calc(6 * var(--u));border:1px solid #ff6acb;background:linear-gradient(#ff55ca,#db098f);box-shadow:0 2px 0 #7d115a}
+.copy-ca:hover{filter:brightness(1.12)}
+.copy-ca img{width:100%;height:100%;object-fit:contain}
+.copy-ca.copied{background:#1f9a45;border-color:#8dffb4}
+.copy-ca.copied img{display:none}
+.copy-ca.copied::after{content:"OK";color:#fff;font-family:Arial,sans-serif;font-size:calc(11 * var(--u));font-style:normal;font-weight:700}
+.copy-status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:760px){
+ .site-header{height:76px;padding:0 12px}
+ .wordmark{width:auto}
+ .wordmark img{height:64px;max-width:140px;margin:0}
+ .navigation{top:76px}
+ .hero-panel{width:100%;gap:10px;padding:8px 0 0}
+ .home-ca{width:100%;max-width:none;padding:6px 6px 6px 10px;gap:8px}
+ .home-ca-label{font-size:16px}
+ .home-ca-address{font-size:11px}
+ .copy-ca{width:40px;height:40px;padding:9px}
+ .copy-ca.copied::after{font-size:11px}
+}

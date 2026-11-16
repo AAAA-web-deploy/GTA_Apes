@@ -13,10 +13,40 @@
     if (url) { button.disabled = false; button.setAttribute('aria-label', `Open ${name}`); button.addEventListener('click', () => window.open(url, '_blank', 'noopener,noreferrer')); }
     else button.title = `${name} link coming soon`;
   });
-  if (config.contractAddress && /^0x[a-fA-F0-9]{40}$/.test(config.contractAddress)) {
+  const contract = /^0x[a-fA-F0-9]{40}$/.test(config.contractAddress || '') ? config.contractAddress : '';
+  if (contract) {
     const display = document.getElementById('contract-display');
-    display.textContent = `${config.contractAddress.slice(0, 6)}…${config.contractAddress.slice(-4)}`;
-    display.title = config.contractAddress;
+    display.textContent = `${contract.slice(0, 6)}…${contract.slice(-4)}`;
+    display.title = contract;
+    const homeAddress = document.getElementById('contract-home');
+    if (homeAddress) homeAddress.textContent = contract;
+  }
+  const copyButton = document.getElementById('copy-ca');
+  const copyStatus = document.getElementById('copy-status');
+  if (copyButton && contract) {
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(contract);
+      } catch {
+        const area = document.createElement('textarea');
+        area.value = contract;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.left = '-9999px';
+        document.body.append(area);
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+      }
+      copyButton.classList.add('copied');
+      copyButton.setAttribute('aria-label', 'Contract address copied');
+      if (copyStatus) copyStatus.textContent = 'Contract address copied';
+      window.setTimeout(() => {
+        copyButton.classList.remove('copied');
+        copyButton.setAttribute('aria-label', 'Copy contract address');
+        if (copyStatus) copyStatus.textContent = '';
+      }, 1600);
+    });
   }
 
   const collections = [

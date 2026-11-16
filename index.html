@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Grand Theft Apes: an ape crew in a cinematic, tropical city.">
+  <meta name="description" content="Grand Theft Apes ($GTA) brings ape-powered chaos to Vice City, where neon nights, wild adventures, and diamond hands rule the streets.">
   <meta name="theme-color" content="#1a102d">
   <title>Grand Theft Apes | $GTA</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header" id="top">
-    <a class="wordmark" href="#top">GRAND THEFT APES <span>($GTA)</span></a>
+    <a class="wordmark" href="#top"><img src="assets-hero/grand_theft_apes_logo.png" alt="Grand Theft Apes ($GTA)"></a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
     <nav class="navigation" id="main-nav" aria-label="Main navigation">
       <a href="#about">ABOUT</a><a href="#how-to-buy">HOW TO BUY</a><a href="#tokenomics">TOKENOMICS</a><a href="#artwork">ARTWORK</a><a href="#communique">COMMUNIQUÉ</a>
@@ -24,14 +24,22 @@
       <div class="hero-shade"></div>
       <div class="hero-bottom">
         <h1 id="hero-title" class="hero-logo"><img src="assets-hero/grand_theft_apes_logo.png" alt="Grand Theft Apes"></h1>
-        <div class="hero-actions"><a class="buy-button hero-buy js-buy" href="#tokenomics">BUY $GTA</a><span class="social-divider" aria-hidden="true"></span><button class="social social-telegram js-social" data-social="telegram" type="button" aria-label="Telegram: coming soon" disabled><img src="assets-icons/telegram.svg" alt=""></button><button class="social js-social" data-social="x" type="button" aria-label="X: coming soon" disabled><img src="assets-icons/x.svg" alt=""></button></div>
+        <div class="hero-panel">
+          <div class="hero-actions"><a class="buy-button hero-buy js-buy" href="#tokenomics">BUY $GTA</a><span class="social-divider" aria-hidden="true"></span><button class="social social-telegram js-social" data-social="telegram" type="button" aria-label="Telegram"><img src="assets-icons/telegram.svg" alt=""></button><button class="social js-social" data-social="x" type="button" aria-label="X"><img src="assets-icons/x.svg" alt=""></button></div>
+          <div class="home-ca">
+            <span class="home-ca-label">CA</span>
+            <span class="home-ca-address" id="contract-home">0x4d1A3A7B3FaBB887971E256dA6C9e7A058AA45AE</span>
+            <button class="copy-ca" id="copy-ca" type="button" aria-label="Copy contract address"><img src="assets-icons/copy.svg" alt=""></button>
+            <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="about" id="about" aria-labelledby="about-title">
       <img class="about-image" src="assets-hero/about_masked_ape_cinematic.png" alt="A heroic ape holding a Grand Theft Apes bandana">
       <div class="about-shade"></div>
-      <div class="about-content"><h2 id="about-title" class="about-heading" aria-label="About $GTA"><span>ABOUT</span><strong>$GTA</strong></h2><p>GRAND THEFT APES ($GTA) is an Ethereum meme project for the degen crew — inspired by the iconic open-world crime culture, tropical city vibes, and a new generation of apes.</p></div>
+      <div class="about-content"><h2 id="about-title" class="about-heading" aria-label="About $GTA"><span>ABOUT</span><strong>$GTA</strong></h2><p>Grand Theft Apes ($GTA) brings ape-powered chaos to Vice City, where neon nights, wild adventures, and diamond hands rule the streets.</p></div>
     </section>
 
     <section class="tokenomics" id="tokenomics" aria-labelledby="token-title">
