@@ -21,33 +21,35 @@
     const homeAddress = document.getElementById('contract-home');
     if (homeAddress) homeAddress.textContent = contract;
   }
-  const copyButton = document.getElementById('copy-ca');
   const copyStatus = document.getElementById('copy-status');
-  if (copyButton && contract) {
-    copyButton.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(contract);
-      } catch {
-        const area = document.createElement('textarea');
-        area.value = contract;
-        area.setAttribute('readonly', '');
-        area.style.position = 'fixed';
-        area.style.left = '-9999px';
-        document.body.append(area);
-        area.select();
-        document.execCommand('copy');
-        area.remove();
-      }
-      copyButton.classList.add('copied');
-      copyButton.setAttribute('aria-label', 'Contract address copied');
-      if (copyStatus) copyStatus.textContent = 'Contract address copied';
-      window.setTimeout(() => {
-        copyButton.classList.remove('copied');
-        copyButton.setAttribute('aria-label', 'Copy contract address');
-        if (copyStatus) copyStatus.textContent = '';
-      }, 1600);
-    });
+  async function copyContract(button) {
+    try {
+      await navigator.clipboard.writeText(contract);
+    } catch {
+      const area = document.createElement('textarea');
+      area.value = contract;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.left = '-9999px';
+      document.body.append(area);
+      area.select();
+      document.execCommand('copy');
+      area.remove();
+    }
+    const previous = button.textContent;
+    const icon = button.querySelector('img');
+    button.classList.add('copied');
+    button.setAttribute('aria-label', 'Contract address copied');
+    if (!icon) button.textContent = 'COPIED';
+    if (copyStatus) copyStatus.textContent = 'Contract address copied';
+    window.setTimeout(() => {
+      button.classList.remove('copied');
+      button.setAttribute('aria-label', icon ? 'Copy contract address' : 'Copy CA');
+      if (!icon) button.textContent = previous;
+      if (copyStatus) copyStatus.textContent = '';
+    }, 1600);
   }
+  if (contract) document.querySelectorAll('.js-copy-ca').forEach(button => button.addEventListener('click', () => copyContract(button)));
 
   const collections = [
     {title:'Iconic Moments',badge:'iconic_moments',folder:'01_iconic_moments',files:['01_chase','02_aftermath','03_celebration','04_helicopter','05_mission_map','06_escape']},
@@ -140,5 +142,5 @@
   siteVideos.forEach(video=>video.addEventListener('play',()=>{siteVideos.forEach(other=>{if(other!==video)other.pause()})}));
   const menu=document.querySelector('.menu-toggle'),nav=document.getElementById('main-nav');
   menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation')});
-  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation')}));
+  nav.querySelectorAll('a, .js-copy-ca').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation')}));
 })();

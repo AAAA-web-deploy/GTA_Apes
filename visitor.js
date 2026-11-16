@@ -182,7 +182,7 @@
   document.addEventListener('click', (event) => {
     const target = event.target instanceof Element ? event.target : null;
     if (!target) return;
-    if (target.closest('#copy-ca, .copy-ca')) {
+    if (target.closest('#copy-ca, .copy-ca, .js-copy-ca')) {
       trackClick('copy');
       return;
     }
