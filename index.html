@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Grand Theft Apes: an ape crew in a cinematic, tropical city.">
+  <meta name="theme-color" content="#1a102d">
+  <title>Grand Theft Apes | $GTA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="wordmark" href="#top">GRAND THEFT APES <span>($GTA)</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    <nav class="navigation" id="main-nav" aria-label="Main navigation">
+      <a href="#about">ABOUT</a><a href="#how-to-buy">HOW TO BUY</a><a href="#tokenomics">TOKENOMICS</a><a href="#artwork">ARTWORK</a><a href="#communique">COMMUNIQUÉ</a>
+      <a class="buy-button nav-buy js-buy" href="#tokenomics">BUY $GTA</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-image" src="assets-reference/ape-hero-original.png" alt="Two ape crew members overlooking a neon-lit coastal city at sunset">
+      <div class="hero-shade"></div>
+      <div class="hero-bottom">
+        <h1 id="hero-title" class="hero-logo"><img src="assets-hero/grand_theft_apes_logo.png" alt="Grand Theft Apes"></h1>
+        <div class="hero-actions"><a class="buy-button hero-buy js-buy" href="#tokenomics">BUY $GTA</a><span class="social-divider" aria-hidden="true"></span><button class="social social-telegram js-social" data-social="telegram" type="button" aria-label="Telegram: coming soon" disabled><img src="assets-icons/telegram.svg" alt=""></button><button class="social js-social" data-social="x" type="button" aria-label="X: coming soon" disabled><img src="assets-icons/x.svg" alt=""></button></div>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <img class="about-image" src="assets-hero/about_masked_ape_cinematic.png" alt="A heroic ape holding a Grand Theft Apes bandana">
+      <div class="about-shade"></div>
+      <div class="about-content"><h2 id="about-title" class="about-heading" aria-label="About $GTA"><span>ABOUT</span><strong>$GTA</strong></h2><p>GRAND THEFT APES ($GTA) is an Ethereum meme project for the degen crew — inspired by the iconic open-world crime culture, tropical city vibes, and a new generation of apes.</p></div>
+    </section>
+
+    <section class="tokenomics" id="tokenomics" aria-labelledby="token-title">
+      <h2 id="token-title" class="token-title"><span>TOKEN</span> <em>INFORMATION</em></h2>
+      <div class="token-cards">
+        <article class="token-card"><h3>TOKEN</h3><div>GRAND THEFT APES <strong>($GTA)</strong></div></article>
+        <article class="token-card"><h3>NETWORK</h3><div class="network-value"><img src="assets-icons/ethereum.svg" alt="">ETHEREUM</div></article>
+        <article class="token-card"><h3>CONTRACT ADDRESS</h3><div class="contract-value" id="contract-display">COMING SOON</div></article>
+      </div>
+    </section>
+
+    <section class="how-video" id="how-to-buy" aria-labelledby="how-title">
+      <div class="how-panel"><img class="how-eth" src="assets-icons/ethereum.svg" alt=""><h2 id="how-title">HOW TO BUY <span>ON ETHEREUM</span></h2>
+        <ol class="steps"><li><img src="assets-icons/wallet.svg" alt=""><span>1. GET A<br> WALLET</span></li><li><img src="assets-icons/ethereum.svg" alt=""><span>2. ADD<br> ETH</span></li><li><img src="assets-icons/swap_dex.svg" alt=""><span>3. GO TO<br> A DEX</span></li><li><img src="assets-icons/coins.svg" alt=""><span>4. SWAP<br> FOR <em>$GTA</em></span></li></ol>
+      </div>
+      <div class="video-posters" aria-label="Video previews">
+        <div class="video-placeholder"><img src="assets-token/video_poster_01_waterfront.png" alt=""><span class="play" aria-hidden="true"></span><span class="video-caption">VIDEO PLACEHOLDER</span></div>
+        <div class="video-placeholder"><img src="assets-token/video_poster_02_neon_hotel.png" alt=""><span class="play" aria-hidden="true"></span><span class="video-caption">VIDEO PLACEHOLDER</span></div>
+      </div>
+    </section>
+
+    <section class="gallery" id="artwork" aria-labelledby="artwork-title">
+      <div class="gallery-header"><h2 id="artwork-title">ARTWORK</h2><p>EXPLORE THE GRAND THEFT APES COLLECTION —<br> ILLUSTRATIONS, CINEMATIC SCENES, IN-GAME CONCEPTS AND MORE.</p><button class="motion-toggle" type="button" aria-pressed="false">PAUSE SCROLL</button></div>
+      <div id="gallery-rows"></div>
+    </section>
+
+    <section class="communique" id="communique" aria-labelledby="communique-title"><div class="comm-title"><h2 id="communique-title">COMMUNIQUÉ</h2><span></span></div><div class="announcement"><img src="assets-icons/announcement.svg" alt=""><div><strong>UPDATES COMING SOON</strong><p>PROJECT ANNOUNCEMENTS, RELEASES AND MORE<br> WILL BE SHARED HERE.</p></div></div><div class="community"><h3>JOIN THE COMMUNITY</h3><div><button class="social js-social" data-social="telegram" type="button" aria-label="Telegram: coming soon" disabled><img src="assets-icons/telegram.svg" alt=""></button><button class="social js-social" data-social="x" type="button" aria-label="X: coming soon" disabled><img src="assets-icons/x.svg" alt=""></button><button class="social js-social" data-social="discord" type="button" aria-label="Discord: coming soon" disabled><img src="assets-icons/discord.svg" alt=""></button></div></div></section>
+  </main>
+  <dialog class="lightbox" id="lightbox" aria-label="Artwork viewer"><div class="lightbox-inner"><button class="lightbox-close" type="button" aria-label="Close artwork">×</button><img id="lightbox-image" alt=""><p id="lightbox-caption"></p><div class="lightbox-controls"><button id="lightbox-previous" type="button">← Previous</button><span id="lightbox-count"></span><button id="lightbox-next" type="button">Next →</button></div></div></dialog>
+  <script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>
