@@ -139,3 +139,8 @@ main,.site-header{max-width:none}
  .about-content{height:auto;min-height:300px;padding:28px 16px}
  .about-content p{max-width:230px;font-size:24px;line-height:1.05}
 }
+.contract-card{gap:calc(12 * var(--u))}
+.card-copy{width:calc(36 * var(--u));height:calc(36 * var(--u));padding:calc(8 * var(--u))}
+@media(max-width:760px){
+ .card-copy{width:36px;height:36px;padding:8px}
+}
