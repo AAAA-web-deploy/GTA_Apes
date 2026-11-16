@@ -140,22 +140,24 @@
   dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')showImage(activeCollection,(activeImage+5)%6);if(e.key==='ArrowRight')showImage(activeCollection,(activeImage+1)%6)});
   const releaseTimer=document.getElementById('release-timer');
   if(releaseTimer){
-    const releaseAt=new Date(config.releaseAt||'2026-11-19T00:00:00').getTime();
+    const parsed=/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2})(?::(\d{2}))?)?/.exec(config.releaseAt||'2026-11-19T00:00:00');
+    const releaseAt=parsed?new Date(+parsed[1],+parsed[2]-1,+parsed[3],+(parsed[4]||0),+(parsed[5]||0),+(parsed[6]||0)).getTime():new Date(2026,10,19).getTime();
     const units={
       days:releaseTimer.querySelector('[data-timer="days"]'),
       hours:releaseTimer.querySelector('[data-timer="hours"]'),
       minutes:releaseTimer.querySelector('[data-timer="minutes"]'),
       seconds:releaseTimer.querySelector('[data-timer="seconds"]')
     };
-    const pad=value=>String(value).padStart(2,'0');
+    const pad=value=>String(Math.max(0,value)).padStart(2,'0');
     const tick=()=>{
-      const left=Math.max(0,releaseAt-Date.now());
-      const total=Math.floor(left/1000);
-      units.days.textContent=pad(Math.floor(total/86400));
-      units.hours.textContent=pad(Math.floor(total/3600)%24);
-      units.minutes.textContent=pad(Math.floor(total/60)%60);
-      units.seconds.textContent=pad(total%60);
-      if(left===0) releaseTimer.querySelector('strong').textContent='GTA IS LIVE';
+      const left=releaseAt-Date.now();
+      const total=Math.max(0,Math.floor(left/1000));
+      if(units.days) units.days.textContent=pad(Math.floor(total/86400));
+      if(units.hours) units.hours.textContent=pad(Math.floor(total/3600)%24);
+      if(units.minutes) units.minutes.textContent=pad(Math.floor(total/60)%60);
+      if(units.seconds) units.seconds.textContent=pad(total%60);
+      const label=releaseTimer.querySelector('strong');
+      if(label) label.textContent=left<=0?'GTA VI IS LIVE':'GTA VI Release';
     };
     tick();
     window.setInterval(tick,1000);
