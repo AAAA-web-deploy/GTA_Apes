@@ -131,6 +131,9 @@ main,.site-header{max-width:none}
 
 .about-content{align-items:center}
 .about-content p{max-width:calc(520 * var(--u));font-family:ApesBold,Impact,sans-serif;font-style:italic;font-weight:700;font-size:calc(34 * var(--u));line-height:1.02;letter-spacing:-.4px;padding-top:0;text-shadow:2px 3px 0 #170b25}
+.desc-name,.desc-city{font-family:"Arial Black",Impact,sans-serif;font-style:normal;font-weight:900;letter-spacing:0;line-height:1}
+.desc-name{color:#ff4bc1;text-shadow:0 0 12px #ff4bc188,2px 3px 0 #3a0830}
+.desc-city{color:#ffda5b;text-shadow:0 0 12px #ffda5b88,2px 3px 0 #3a2a08}
 @media(max-width:760px){
  .about{height:auto;min-height:300px}
  .about-content{height:auto;min-height:300px;padding:28px 16px}
