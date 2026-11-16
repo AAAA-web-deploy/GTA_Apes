@@ -138,6 +138,28 @@
   document.getElementById('lightbox-next').addEventListener('click',()=>showImage(activeCollection,(activeImage+1)%6));
   dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
   dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')showImage(activeCollection,(activeImage+5)%6);if(e.key==='ArrowRight')showImage(activeCollection,(activeImage+1)%6)});
+  const releaseTimer=document.getElementById('release-timer');
+  if(releaseTimer){
+    const releaseAt=new Date(config.releaseAt||'2026-11-19T00:00:00').getTime();
+    const units={
+      days:releaseTimer.querySelector('[data-timer="days"]'),
+      hours:releaseTimer.querySelector('[data-timer="hours"]'),
+      minutes:releaseTimer.querySelector('[data-timer="minutes"]'),
+      seconds:releaseTimer.querySelector('[data-timer="seconds"]')
+    };
+    const pad=value=>String(value).padStart(2,'0');
+    const tick=()=>{
+      const left=Math.max(0,releaseAt-Date.now());
+      const total=Math.floor(left/1000);
+      units.days.textContent=pad(Math.floor(total/86400));
+      units.hours.textContent=pad(Math.floor(total/3600)%24);
+      units.minutes.textContent=pad(Math.floor(total/60)%60);
+      units.seconds.textContent=pad(total%60);
+      if(left===0) releaseTimer.querySelector('strong').textContent='GTA IS LIVE';
+    };
+    tick();
+    window.setInterval(tick,1000);
+  }
   const siteVideos=document.querySelectorAll('.video-section video');
   siteVideos.forEach(video=>video.addEventListener('play',()=>{siteVideos.forEach(other=>{if(other!==video)other.pause()})}));
   const menu=document.querySelector('.menu-toggle'),nav=document.getElementById('main-nav');

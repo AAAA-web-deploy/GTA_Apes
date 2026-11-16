@@ -102,16 +102,28 @@ main,.site-header{max-width:none}
  .copy-ca.copied::after{font-size:11px}
 }
 
-.how-video{display:flex;align-items:center;height:auto;min-height:calc(111 * var(--u))}
-.how-panel{width:53%}
-.video-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:47%;gap:calc(8 * var(--u));padding:calc(8 * var(--u)) calc(8 * var(--u)) calc(8 * var(--u)) 0;background:transparent;border:0}
+.how-video{display:block;align-items:stretch;height:auto;min-height:0}
+.how-panel{width:100%}
+.video-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:calc(8 * var(--u));padding:0 calc(8 * var(--u)) calc(8 * var(--u));background:#120818;border:0}
 .video-section{min-width:0;background:#07030f;border:2px solid #fff;border-radius:calc(6 * var(--u));overflow:hidden}
-.video-section video{display:block;width:100%;height:calc(118 * var(--u));max-height:170px;object-fit:cover;background:#07030f}
+.video-section video{display:block;width:100%;height:auto;aspect-ratio:16/9;max-height:none;object-fit:cover;background:#07030f}
 @media(max-width:760px){
  .how-video{display:block}
  .how-panel{width:100%}
  .video-sections{width:100%;grid-template-columns:1fr 1fr;gap:8px;padding:8px 10px 10px}
- .video-section video{height:120px;max-height:none}
+ .video-section video{height:auto;aspect-ratio:16/9;max-height:none}
+}
+.announcement{gap:calc(14 * var(--u))}
+.timer-copy{display:flex;flex-direction:column;align-items:center;gap:calc(3 * var(--u))}
+.timer-units{display:flex;align-items:flex-end;justify-content:center;gap:calc(10 * var(--u))}
+.timer-units span{display:flex;flex-direction:column;align-items:center;min-width:calc(34 * var(--u))}
+.timer-units b{font-family:ApesBold,Impact,sans-serif;font-style:italic;font-weight:700;font-size:calc(22 * var(--u));line-height:.9;color:#ff4bc1}
+.timer-units small{margin-top:calc(2 * var(--u));font-size:calc(7 * var(--u));font-weight:700;letter-spacing:.6px}
+@media(max-width:760px){
+ .announcement{height:auto;min-height:74px;padding:8px 10px}
+ .timer-units{gap:8px}
+ .timer-units b{font-size:22px}
+ .timer-units small{font-size:8px}
 }
 
 .about-content{align-items:center}
