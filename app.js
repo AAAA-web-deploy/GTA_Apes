@@ -136,6 +136,8 @@
   document.getElementById('lightbox-next').addEventListener('click',()=>showImage(activeCollection,(activeImage+1)%6));
   dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
   dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')showImage(activeCollection,(activeImage+5)%6);if(e.key==='ArrowRight')showImage(activeCollection,(activeImage+1)%6)});
+  const siteVideos=document.querySelectorAll('.video-section video');
+  siteVideos.forEach(video=>video.addEventListener('play',()=>{siteVideos.forEach(other=>{if(other!==video)other.pause()})}));
   const menu=document.querySelector('.menu-toggle'),nav=document.getElementById('main-nav');
   menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation')});
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation')}));

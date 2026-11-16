@@ -99,3 +99,13 @@ main,.site-header{max-width:none}
  .copy-ca{width:40px;height:40px;padding:9px}
  .copy-ca.copied::after{font-size:11px}
 }
+
+.how-panel{width:100%}
+.how-video{height:auto;min-height:calc(96 * var(--u))}
+.video-sections{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(12 * var(--u));padding:calc(12 * var(--u));background:#1a1028;border-bottom:2px solid #e9d1ec}
+.video-section{min-width:0;background:#07030f;border:2px solid #f4d7e9;border-radius:calc(8 * var(--u));overflow:hidden}
+.video-section video{display:block;width:100%;height:calc(168 * var(--u));max-height:240px;object-fit:contain;background:#07030f}
+@media(max-width:760px){
+ .video-sections{grid-template-columns:1fr;gap:10px;padding:12px}
+ .video-section video{height:190px;max-height:none}
+}
