@@ -10,16 +10,25 @@
   document.querySelectorAll('.js-social').forEach(button => {
     const name = button.dataset.social;
     const url = safeUrl(config[socialKeys[name]]);
-    if (url) { button.disabled = false; button.setAttribute('aria-label', `Open ${name}`); button.addEventListener('click', () => window.open(url, '_blank', 'noopener,noreferrer')); }
-    else button.title = `${name} link coming soon`;
+    const label = name === 'x' ? 'X' : name[0].toUpperCase() + name.slice(1);
+    if (url) { button.disabled = false; button.setAttribute('aria-label', `Open ${label}`); button.addEventListener('click', () => window.open(url, '_blank', 'noopener,noreferrer')); }
+    else { button.disabled = true; button.title = 'Coming soon'; button.setAttribute('aria-label', `${label} coming soon`); }
   });
   const contract = /^0x[a-fA-F0-9]{40}$/.test(config.contractAddress || '') ? config.contractAddress : '';
+  const display = document.getElementById('contract-display');
+  const homeAddress = document.getElementById('contract-home');
   if (contract) {
-    const display = document.getElementById('contract-display');
     display.textContent = `${contract.slice(0, 6)}…${contract.slice(-4)}`;
     display.title = contract;
-    const homeAddress = document.getElementById('contract-home');
     if (homeAddress) homeAddress.textContent = contract;
+  } else {
+    if (display) display.textContent = 'COMING SOON';
+    if (homeAddress) homeAddress.textContent = 'COMING SOON';
+    document.querySelectorAll('.js-copy-ca').forEach(button => {
+      button.disabled = true;
+      button.title = 'Coming soon';
+      button.setAttribute('aria-label', 'Contract address coming soon');
+    });
   }
   const copyStatus = document.getElementById('copy-status');
   async function copyContract(button) {
