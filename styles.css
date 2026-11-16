@@ -73,8 +73,10 @@ main,.site-header{max-width:none}
 }
 
 .site-header{position:sticky;top:0;z-index:30;height:calc(48 * var(--u));padding:0 calc(14 * var(--u)) 0 calc(12 * var(--u));box-shadow:0 2px 0 #120818}
-.wordmark{display:flex;align-items:center;justify-content:flex-start;height:100%;width:auto;transform:none;margin-right:calc(12 * var(--u));overflow:hidden;flex:none}
+.wordmark{display:flex;align-items:center;justify-content:flex-start;height:100%;width:auto;transform:none;margin-right:calc(12 * var(--u));overflow:visible;flex:none;gap:calc(8 * var(--u))}
 .wordmark img{height:calc(36 * var(--u));width:auto;max-width:calc(78 * var(--u));object-fit:contain;object-position:left center;mix-blend-mode:lighten;margin:0}
+.token-name{font-family:ApesBold,Impact,sans-serif;font-style:italic;font-weight:700;font-size:calc(16 * var(--u));letter-spacing:-.4px;line-height:1;color:#fff;white-space:nowrap}
+.token-name strong{color:#ff38bc;font-weight:700}
 .nav-buy{width:auto;min-width:calc(94 * var(--u));padding:0 calc(10 * var(--u))}
 .hero-panel{display:flex;flex-direction:column;align-items:flex-start;gap:calc(12 * var(--u));padding-bottom:calc(18 * var(--u));min-width:0}
 .hero-actions{padding-bottom:0}
@@ -90,8 +92,9 @@ main,.site-header{max-width:none}
 .copy-status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media(max-width:760px){
  .site-header{height:56px;padding:0 12px}
- .wordmark{width:auto;margin-right:8px}
+ .wordmark{width:auto;margin-right:8px;gap:8px}
  .wordmark img{height:40px;max-width:72px;margin:0}
+ .token-name{font-size:14px;letter-spacing:-.3px}
  .navigation{top:56px}
  .nav-buy{width:100%;min-width:0}
  .hero-panel{width:100%;gap:10px;padding:8px 0 0}
