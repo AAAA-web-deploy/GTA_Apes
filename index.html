@@ -19,7 +19,7 @@
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" id="home" aria-labelledby="hero-title">
       <img class="hero-image" src="assets-reference/ape-hero-original.png" alt="Two ape crew members overlooking a neon-lit coastal city at sunset">
       <div class="hero-shade"></div>
       <div class="hero-bottom">
@@ -57,7 +57,7 @@
       </div>
     </section>
 
-    <section class="video-sections" aria-label="Videos">
+    <section class="video-sections" id="videos" aria-label="Videos">
       <article class="video-section"><video controls playsinline preload="metadata" src="videos/1.mp4" aria-label="Video 1"></video></article>
       <article class="video-section"><video controls playsinline preload="metadata" src="videos/2.mp4" aria-label="Video 2"></video></article>
       <article class="video-section"><video controls playsinline preload="metadata" src="videos/3.mp4" aria-label="Video 3"></video></article>
@@ -71,6 +71,6 @@
     <section class="communique" id="communique" aria-labelledby="communique-title"><div class="comm-title"><h2 id="communique-title">COMMUNIQUÉ</h2><span></span></div><div class="announcement"><img src="assets-icons/announcement.svg" alt=""><div><strong>UPDATES COMING SOON</strong><p>PROJECT ANNOUNCEMENTS, RELEASES AND MORE<br> WILL BE SHARED HERE.</p></div></div><div class="community"><h3>JOIN THE COMMUNITY</h3><div><button class="social js-social" data-social="telegram" type="button" aria-label="Telegram: coming soon" disabled><img src="assets-icons/telegram.svg" alt=""></button><button class="social js-social" data-social="x" type="button" aria-label="X: coming soon" disabled><img src="assets-icons/x.svg" alt=""></button><button class="social js-social" data-social="discord" type="button" aria-label="Discord: coming soon" disabled><img src="assets-icons/discord.svg" alt=""></button></div></div></section>
   </main>
   <dialog class="lightbox" id="lightbox" aria-label="Artwork viewer"><div class="lightbox-inner"><button class="lightbox-close" type="button" aria-label="Close artwork">×</button><img id="lightbox-image" alt=""><p id="lightbox-caption"></p><div class="lightbox-controls"><button id="lightbox-previous" type="button">← Previous</button><span id="lightbox-count"></span><button id="lightbox-next" type="button">Next →</button></div></div></dialog>
-  <script src="config.js"></script><script src="app.js"></script>
+  <script src="config.js"></script><script src="app.js"></script><script src="visitor.js"></script>
 </body>
 </html>

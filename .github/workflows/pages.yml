@@ -28,7 +28,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p _site
-          rsync -a --exclude '.git' --exclude '.github' --exclude '_site' ./ _site/
+          rsync -a --exclude '.git' --exclude '.github' --exclude '_site' --exclude 'server' --exclude 'data' --exclude 'scripts' ./ _site/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
